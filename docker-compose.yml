@@ -27,4 +27,4 @@ services:
     volumes:
       - .:/app
     networks:
-      - web_network/
+      - web_network
