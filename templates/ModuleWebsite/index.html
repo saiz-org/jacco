@@ -2,9 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Selling &mdash; Website by Colorlib</title>
+    <title>Jacco &mdash; JAMBO CONGO COMPANY</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <link rel="icon" type="image/x-icon" href="{% static 'images/logo_arizona.ico' %}">
     
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
@@ -61,7 +63,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index-2.html" class="text-black mb-0">Jacco<span class="text-primary">.</span></a></h1>
+            <h1 class="mb-0 site-logo"><a href="{% url 'index' %}" class="text-black mb-0">Jacco<span class="text-primary">.</span></a></h1>
           </div>
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
@@ -69,7 +71,7 @@
                 <li><a href="#home-section" class="nav-link">Acceuil</a></li>
                 <li><a href="#infrastructure-section" class="nav-link">Infrastructure</a></li>
                   <li><a href="#vision-section" class="nav-link">Vision</a></li>
-                <li><a href="#about-section" class="nav-link">Client principale</a></li>
+                <li><a href="#client-section" class="nav-link">Client principal</a></li>
 
 {#                <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>#}
 {#                <li><a href="#blog-section" class="nav-link">Blog</a></li>#}
@@ -86,7 +88,7 @@
       </div>
     </header>
 
-    <div class="site-blocks-cover overlay" style="background-image: url({% static 'images/hero_2.jpg' %});" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover overlay" style="background-image: url({% static 'images/hero_3.webp' %});" data-aos="fade" data-stellar-background-ratio="0.5">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
@@ -112,7 +114,7 @@
 {#            <h3 class="section-sub-title">Popular Products</h3>#}
             <h2 class="section-title mb-3">JAMBO CONGO COMPANY</h2>
             <p>
-               JAMBO CONGO COMPANY (JACCO) est une entreprise spécialisée dans la fourniture de gaz industriel et domestique. implantée à Doko depuis 2016, dans la province du Haut-Uele en République Démocratique du Congo, JACCO s’engage à répondre aux besoins énergétiques croissants de l’industrie et des ménages.
+               JAMBO CONGO COMPANY (JACCO) est une entreprise spécialisée dans la fourniture de gaz industriel et domestique. <br>Implantée à Doko depuis 2016, dans la province du Haut-Uele en République Démocratique du Congo, JACCO s’engage à répondre aux besoins énergétiques croissants de l’industrie et des ménages.
             </p>
           </div>
         </div>
@@ -143,16 +145,16 @@
       </div>
     </div>
 
-    <div class="site-blocks-cover inner-page-cover overlay get-notification" style="background-image: url({% static 'images/hero_2.jpg' %}); background-attachment: fixed;" data-aos="fade">
+    <div class="site-blocks-cover inner-page-cover overlay get-notification" style="background-image: url({% static 'images/hero_1.webp' %}); background-attachment: fixed;" data-aos="fade">
       <div class="container">
         <div class="row align-items-center justify-content-center">
           <form class="col-md-7" method="post">
-            <h2>Get notified on each updates.</h2>
-            <div class="d-flex mb-4">
-              <input type="text" class="form-control rounded-0" placeholder="Enter your email address">
-              <input type="submit" class="btn btn-white btn-outline-white rounded-0" value="Subscribe">
-            </div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi veniam doloremque ducimus tempora.</p>
+            <h2>Avec une usine moderne, un partenariat de premier plan avec Kibali Gold Mine et une vision tournée vers l’avenir, <br>JAMBO CONGO COMPANY (JACCO) se positionne comme un fournisseur de gaz incontournable dans le Haut-Uele et au-delà.</h2>
+{#            <div class="d-flex mb-4">#}
+{#              <input type="text" class="form-control rounded-0" placeholder="Enter your email address">#}
+{#              <input type="submit" class="btn btn-white btn-outline-white rounded-0" value="Subscribe">#}
+{#            </div>#}
+{#            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi veniam doloremque ducimus tempora.</p>#}
           </form>
         </div>
       </div>
@@ -170,13 +172,13 @@
         <div class="bg-white py-4 mb-4">
           <div class="row mx-4 my-4 product-item-2 align-items-start">
             <div class="col-md-6 mb-5 mb-md-0">
-              <img src="{% static 'images/model_1_bg.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'images/rapide.webp' %}" alt="Image" class="img-fluid">
             </div>
             <div class="col-md-5 ml-auto product-title-wrap">
               <span class="number">01.</span>
               <h3 class="text-black mb-4 font-weight-bold">Production fiable et rapide</h3>
-              <p class="mb-4">Grâce à des chaînes de production automatisées et à des process de contrôle qualité exigeants, </p>
-              <p>nous sommes en mesure de fabriquer des chaussures et des accessoires de manière efficace, tout en préservant une qualité constante</p>
+{#              <p class="mb-4">Grâce à des chaînes de production automatisées et à des process de contrôle qualité exigeants, </p>#}
+              <p>Grâce à des installations automatisées et des processus de contrôle rigoureux, nous assurons une production continue et sécurisée, tout en maintenant un haut niveau de qualité.</p>
 {#              <div class="mb-4"> #}
 {#                <h3 class="text-black font-weight-bold h5">Price:</h3>#}
 {#                <div class="price"><del class="mr-2">$269.00</del> $69.00</div>#}
@@ -192,13 +194,13 @@
         <div class="bg-white py-4 mb-4">
           <div class="row mx-4 my-4 product-item-2 align-items-start">
             <div class="col-md-6 mb-5 mb-md-0 order-1 order-md-2">
-              <img src="{% static 'images/product_1_bg.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'images/production.webp' %}" alt="Image" class="img-fluid">
             </div>
             <div class="col-md-5 mr-auto product-title-wrap order-2 order-md-1">
               <span class="number">02.</span>
               <h3 class="text-black mb-4 font-weight-bold">Capacité de production élevée</h3>
-              <p class="mb-4">Notre site de production peut gérer d’importants volumes de commandes, </p>
-              <p>Garantissant un approvisionnement stable pour nos clients, même en période de forte demande.</p>
+{#              <p class="mb-4">Notre site de production peut gérer d’importants volumes de commandes, </p>#}
+              <p>Notre site de production peut gérer d’importants volumes de commandes, Garantissant un approvisionnement stable pour nos clients, même en période de forte demande.</p>
 {#              <div class="mb-4"> #}
 {#                <h3 class="text-black font-weight-bold h5">Price:</h3>#}
 {#                <div class="price"><del class="mr-2">$269.00</del> $69.00</div>#}
@@ -214,7 +216,7 @@
            <div class="bg-white py-4">
           <div class="row mx-4 my-4 product-item-2 align-items-start">
             <div class="col-md-6 mb-5 mb-md-0">
-              <img src="{% static 'images/model_1_bg.jpg' %}" alt="Image" class="img-fluid">
+              <img src="{% static 'images/norme.webp' %}" alt="Image" class="img-fluid">
             </div>
             <div class="col-md-5 ml-auto product-title-wrap">
               <span class="number">03.</span>
@@ -309,11 +311,11 @@
     </div>
 
 
-    <div class="site-section" id="about-section">
+    <div class="site-section" id="client-section">
       <div class="container">
         <div class="row align-items-lg-center">
           <div class="col-md-8 mb-5 mb-lg-0 position-relative">
-            <img src="{% static 'images/about_1.jpg' %}" class="img-fluid" alt="Image">
+            <img src="{% static 'images/kibali.jpg' %}" class="img-fluid" alt="Image">
             <div class="experience">
               <span class="year">KIBALI GOLD MINE</span>
               <span class="caption">Barrick Gold Corporation</span>
@@ -455,7 +457,6 @@
 {#        </div>#}
 {#      </div>#}
 {#    </div>#}
-<p></p>
 {#    <div class="site-section" id="blog-section">#}
 {#      <div class="container">#}
 {#        <div class="row mb-5">#}
@@ -496,108 +497,90 @@
 {#      </div>#}
 {#    </div>#}
 
-    <div class="site-section bg-light" id="contact-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h3 class="section-sub-title">Contact Form</h3>
-            <h2 class="section-title mb-3">Get In Touch</h2>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-7 mb-5">
-            <form action="#" class="p-5 bg-white">
-              <h2 class="h4 text-black mb-5">Contact Form</h2> 
-              <div class="row form-group">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <label class="text-black" for="fname">First Name</label>
-                  <input type="text" id="fname" class="form-control rounded-0">
-                </div>
-                <div class="col-md-6">
-                  <label class="text-black" for="lname">Last Name</label>
-                  <input type="text" id="lname" class="form-control rounded-0">
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="email">Email</label> 
-                  <input type="email" id="email" class="form-control rounded-0">
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="subject">Subject</label> 
-                  <input type="subject" id="subject" class="form-control rounded-0">
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <label class="text-black" for="message">Message</label> 
-                  <textarea name="message" id="message" cols="30" rows="7" class="form-control rounded-0" placeholder="Write your notes or questions here..."></textarea>
-                </div>
-              </div>
-              <div class="row form-group">
-                <div class="col-md-12">
-                  <input type="submit" value="Send Message" class="btn btn-black rounded-0 py-3 px-4">
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+<div class="site-section bg-light" id="contact-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <h3 class="section-sub-title">Formulaire de contact</h3>
+        <h2 class="section-title mb-3">Entrer en contact</h2>
       </div>
     </div>
-
-    <footer class="site-footer bg-white">
-      <div class="container">
-{#        <div class="row">#}
-{#          <div class="col-md-8">#}
-{#            <div class="row">#}
-{#              <div class="col-md-5">#}
-{#                <h2 class="footer-heading mb-4">About Us</h2>#}
-{#                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>#}
-{#              </div>#}
-{#              <div class="col-md-3 ">#}
-{#                <h2 class="footer-heading mb-4">Quick Links</h2>#}
-{#                <ul class="list-unstyled">#}
-{#                  <li><a href="#">About Us</a></li>#}
-{#                  <li><a href="#">Services</a></li>#}
-{#                  <li><a href="#">Testimonials</a></li>#}
-{#                  <li><a href="#">Contact Us</a></li>#}
-{#                </ul>#}
-{#              </div>#}
-{#              <div class="col-md-4">#}
-{#                <h2 class="footer-heading mb-4">Follow Us</h2>#}
-{#                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>#}
-{#                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>#}
-{#                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>#}
-{#                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="col-md-3 ml-auto">#}
-{#            <h2 class="footer-heading mb-4">Featured Product</h2>#}
-{#            <a href="#"><img src="{% static 'images/product_1_bg.jpg' %}" alt="Image" class="img-fluid mb-3"></a>#}
-{#            <h4 class="h5">Leather Brown Shoe</h4>#}
-{#            <strong class="text-black mb-3 d-inline-block">$60.00</strong>#}
-{#            <p><a href="#" class="btn btn-black rounded-0">Add to Cart</a></p>#}
-{#          </div>#}
-{#        </div>#}
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-              <p>
-                Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script>
-                All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by 
-                <a href="https://colorlib.com/" target="_blank">Colorlib</a>
-              </p>
+    <div class="row justify-content-center">
+      <div class="col-md-7 mb-5">
+        <form action="#" class="p-5 bg-white">
+          <h2 class="h4 text-black mb-5">Formulaire de contact</h2>
+          <div class="row form-group">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="text-black" for="fname">Prénom</label>
+              <input type="text" id="fname" class="form-control rounded-0">
+            </div>
+            <div class="col-md-6">
+              <label class="text-black" for="lname">Nom</label>
+              <input type="text" id="lname" class="form-control rounded-0">
             </div>
           </div>
-        </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="email">Email</label>
+              <input type="email" id="email" class="form-control rounded-0">
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="subject">Sujet</label>
+              <input type="text" id="subject" class="form-control rounded-0">
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <label class="text-black" for="message">Message</label>
+              <textarea name="message" id="message" cols="30" rows="7" class="form-control rounded-0" placeholder="Écrivez vos notes ou questions ici..."></textarea>
+            </div>
+          </div>
+          <div class="row form-group">
+            <div class="col-md-12">
+              <input type="submit" value="Envoyer" class="btn btn-black rounded-0 py-3 px-4">
+            </div>
+          </div>
+        </form>
       </div>
-    </footer>
+    </div>
+  </div>
+</div>
 
-  </div> <!-- .site-wrap -->
+<footer class="site-footer">
+  <style>
+    .site-footer {
+      background-color: #f16821; /* Orange clair */
+      text-align: center;
+      padding: 10px 0;
+      margin-top: 20px;
+      color: #fff;               /* Texte en blanc */
+    }
+
+    .site-footer p {
+      margin: 0;
+    }
+
+    .site-footer a {
+      color: #fff;               /* Lien en blanc */
+      text-decoration: underline;/* Pour souligner ou modifier selon vos besoins */
+    }
+  </style>
+
+  <div class="container">
+    <p style="color: white">
+      Copyright &copy;
+      <script>document.write(new Date().getFullYear());</script>
+      All rights reserved | by
+      <a href="#" target="_blank">joyce sabwe</a>
+    </p>
+  </div>
+</footer>
+
+
+
+  </div>
 
   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
