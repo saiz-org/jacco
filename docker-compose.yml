@@ -48,7 +48,7 @@ services:
     volumes:
       - jacco_prod_app:/var/lib/postgresql/data
     ports:
-      - "5435:5432"
+      - "5436:5432"
     networks:
       - web_jacco_prod
 
