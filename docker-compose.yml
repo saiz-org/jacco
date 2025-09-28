@@ -1,15 +1,17 @@
-version: '3.8'
-
 networks:
   web_network:
     external: true
+  web_jacco_prod:
+
+volumes:
+  tts_prod_app:
 
 services:
-  django_jacco:
+  jacco_prod_app:
     build: .
-    container_name: jacco_app
-    image: jacco_django:latest
-    command: python3 manage.py runserver  0.0.0.0:8000 --insecure
+    container_name: jacco_prod_app
+    image: jacco_prod_app:latest
+    command: gunicorn --bind 0.0.0.0:8000 jacco.wsgi:application
     restart: always
     deploy:
       restart_policy:
@@ -20,11 +22,42 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+    environment:
+      - DJANGO_SETTINGS_MODULE=jacco.settings_prod
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    ports:
-      - "8002:8000"
+    user: "1000:1000"
     volumes:
-      - .:/app
+#      - .:/app
+      - ./staticfiles:/app/staticfiles
+      - ./media:/app/media
+    depends_on:
+      - jacco_prod_app_pgsql
     networks:
       - web_network
+      - web_jacco_prod
+
+  jacco_prod_app_pgsql:
+    image: postgres:15
+    container_name: jacco_prod_app_pgsql
+    restart: always
+    environment:
+      POSTGRES_DB: jacco_db
+      POSTGRES_USER: jacco_user
+      POSTGRES_PASSWORD: jacco_pass
+    volumes:
+      - jacco_prod_app:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    networks:
+      - web_jacco_prod
+
+  jacco_prod_app_adminer:
+    image: adminer
+    container_name: jacco_prod_app_adminer
+    restart: always
+    ports:
+      - "8087:8080"
+    networks:
+      - web_jacco_prod
+
