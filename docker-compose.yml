@@ -4,7 +4,7 @@ networks:
   web_jacco_prod:
 
 volumes:
-  tts_prod_app:
+  jacco_prod_app:
 
 services:
   jacco_prod_app:
