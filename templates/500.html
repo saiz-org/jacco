@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Erreur 500 - Jacco &mdash; JAMBO CONGO COMPANY</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" type="image/x-icon" href="{% static 'images/jacco.ico' %}">
+    
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+            position: relative;
+        }
+        
+        .error-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            position: relative;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: 900;
+            font-family: "Muli", sans-serif;
+            margin-bottom: 0;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .error-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-family: "Muli", sans-serif;
+        }
+        
+        .error-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-home {
+            background: white;
+            color: #343a40;
+            border: 2px solid white;
+            padding: 12px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .btn-home:hover {
+            background: transparent;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .btn-retry {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 12px 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .btn-retry:hover {
+            background: white;
+            color: #343a40;
+            text-decoration: none;
+        }
+        
+        .logo-section {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            z-index: 3;
+        }
+        
+        .site-logo {
+            font-size: 2rem;
+            font-weight: 900;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .site-logo:hover {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .text-primary {
+            color: #f16821 !important;
+        }
+        
+        .error-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 5l25 25-25 25L5 30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .server-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+        
+        .error-details {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .error-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .error-details p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #dc3545;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+            .error-title {
+                font-size: 1.8rem;
+            }
+            .error-description {
+                font-size: 1rem;
+                padding: 0 20px;
+            }
+            .logo-section {
+                position: relative;
+                top: auto;
+                left: auto;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+            .btn-home, .btn-retry {
+                display: block;
+                margin: 10px auto;
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <div class="error-bg-pattern"></div>
+        
+        <div class="logo-section d-none d-md-block">
+            <h1 class="site-logo">
+                <a href="{% url 'index' %}" class="site-logo">
+                    Jacco<span class="text-primary">.</span>
+                </a>
+            </h1>
+        </div>
+        
+        <div class="error-content">
+            <div class="logo-section d-block d-md-none">
+                <h1 class="site-logo">
+                    <a href="{% url 'index' %}" class="site-logo">
+                        Jacco<span class="text-primary">.</span>
+                    </a>
+                </h1>
+            </div>
+            
+            <div class="server-icon">
+                <span class="icon-cog"></span>
+            </div>
+            <h1 class="error-code">500</h1>
+            <h2 class="error-title">Erreur Interne du Serveur</h2>
+            <p class="error-description">
+                Nous rencontrons actuellement un problème technique sur nos serveurs. 
+                Nos équipes techniques ont été automatiquement notifiées et travaillent à résoudre ce problème.
+            </p>
+            <div>
+                <a href="{% url 'index' %}" class="btn-home">
+                    <span class="icon-home mr-2"></span>
+                    Retour à l'accueil
+                </a>
+                <button onclick="location.reload()" class="btn-retry">
+                    <span class="icon-refresh mr-2"></span>
+                    Réessayer
+                </button>
+            </div>
+            
+            <div class="error-details">
+                <h4><span class="status-indicator"></span>Statut du système</h4>
+                <p><strong>Serveur :</strong> Maintenance en cours</p>
+                <p><strong>Temps estimé :</strong> Quelques minutes</p>
+                <p><strong>Contact support :</strong> <a href="mailto:support@jacco.cd" style="color: #f16821;">support@jacco.cd</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <script>
+        // Auto-refresh après 30 secondes
+        setTimeout(function() {
+            if (confirm("Voulez-vous réessayer de charger la page ?")) {
+                location.reload();
+            }
+        }, 30000);
+    </script>
+</body>
+</html>
