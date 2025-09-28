@@ -57,7 +57,7 @@ services:
     container_name: jacco_prod_app_adminer
     restart: always
     ports:
-      - "8087:8080"
+      - "8088:8080"
     networks:
       - web_jacco_prod
 
