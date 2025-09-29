@@ -1,600 +1,1263 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <title>Jacco &mdash; JAMBO CONGO COMPANY</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="JAMBO CONGO COMPANY (JACCO) - Fournisseur de gaz industriel et domestique en République Démocratique du Congo">
 
      <link rel="icon" type="image/x-icon" href="{% static 'images/jacco.ico' %}">
     
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/jquery.fancybox.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
-    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  <div class="site-wrap">
+    
+    <style>
+        /* Variables CSS pour la cohérence */
+        :root {
+            --primary-color: #f16821;
+            --primary-dark: #d4561a;
+            --text-dark: #2c3e50;
+            --text-light: #5a6c7d;
+            --bg-light: #f1f3f5;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 40px rgba(0,0,0,0.15);
+            --border-radius: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
+        /* Typography moderne */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        /* Header moderne et épuré */
+        .modern-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(241, 104, 33, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 1rem 0;
+        }
+
+        .modern-header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow);
+            padding: 0.5rem 0;
+        }
+
+        .modern-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .modern-logo:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .modern-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 992px) {
+            .modern-nav {
+                gap: 2rem;
+            }
+        }
+
+        .modern-nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        @media (min-width: 992px) {
+            .modern-nav a {
+                font-size: 0.95rem;
+            }
+        }
+
+        .modern-nav a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .modern-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .modern-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero section moderne */
+        .modern-hero {
+            min-height: 100vh;
+            background: 
+                linear-gradient(135deg, rgba(25, 42, 86, 0.15) 0%, rgba(30, 58, 138, 0.15) 100%),
+                url('{% static "images/hero.jpg" %}') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modern-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Boutons modernes */
+        .btn-modern {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-transform: none;
+            font-size: 1rem;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-modern-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-modern-primary:hover {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            text-decoration: none;
+        }
+
+        .btn-modern-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-modern-outline:hover {
+            background: white;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Sections modernes */
+        .modern-section {
+            padding: 5rem 0;
+        }
+        
+        /* Section client avec padding réduit */
+        .modern-section#client {
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Cards modernes */
+        .modern-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid rgba(241, 104, 33, 0.1);
+        }
+
+        .modern-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .card-text {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Section client moderne */
+        .client-section {
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+
+        .client-logo {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Contact moderne */
+        .contact-form {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(241, 104, 33, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .form-control-modern {
+            border: 1px solid #dee2e6;
+            border-radius: var(--border-radius);
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            background: white;
+            height: auto;
+        }
+
+        .form-control-modern:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.15rem rgba(241, 104, 33, 0.15);
+            outline: none;
+        }
+
+        .form-control-modern::placeholder {
+            color: #adb5bd;
+            font-style: italic;
+        }
+
+        /* Textarea spécifique */
+        .form-control-modern.textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Bouton Bootstrap moderne */
+        .btn-submit {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            border: none;
+            color: white;
+            padding: 0.75rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+            text-transform: none;
+            box-shadow: 0 4px 15px rgba(241, 104, 33, 0.3);
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(241, 104, 33, 0.4);
+            color: white;
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        .btn-submit i {
+            margin-right: 0.5rem;
+        }
+
+        /* Footer moderne */
+        .modern-footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Menu mobile */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            z-index: 9999;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            padding-top: 80px;
+        }
+        
+        .mobile-menu.active {
+            left: 0;
+        }
+        
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu-nav {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        
+        .mobile-menu-nav li {
+            border-bottom: 1px solid #f1f3f5;
+        }
+        
+        .mobile-menu-nav a {
+            display: block;
+            padding: 1rem 2rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-nav a:hover {
+            background: var(--bg-light);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 767px) {
+            .modern-nav {
+                display: none !important;
+            }
+            
+            .mobile-menu-toggle {
+                display: block !important;
+            }
+            
+            .hero-content {
+                text-align: center;
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .btn-modern {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+                padding: 1rem 1.5rem;
+            }
+            
+            .modern-section {
+                padding: 3rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .modern-card {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .contact-form {
+                padding: 2rem;
+            }
+            
+            .form-group {
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .modern-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+            }
+            
+            .form-group {
+                margin-bottom: 0.8rem;
+            }
+            
+            .btn-submit {
+                width: 100%;
+                padding: 1rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+
+        .fade-in-up.aos-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utilitaires */
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+
+        .bg-light-custom {
+            background-color: var(--bg-light) !important;
+        }
+
+        .spacer {
+            height: 100px;
+        }
+        
+        /* Images des sections - Desktop uniquement */
+        .section-image {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        
+        .section-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        /* Container pour les images infrastructure */
+        .infrastructure-images {
+            margin-left: 0;
+            margin-right: 0;
+        }
+        
+        .infrastructure-images .col-lg-6 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        /* Alignement avec les cards */
+        .infrastructure-images .col-lg-6:first-child {
+            padding-left: 0;
+        }
+        
+        .infrastructure-images .col-lg-6:last-child {
+            padding-right: 0;
+        }
+        
+        /* Carousel Vision */
+        .vision-carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: var(--border-radius);
+        }
+        
+        .carousel-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .carousel-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .carousel-text {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            z-index: 10;
+        }
+        
+        .carousel-nav:hover {
+            background: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .carousel-nav.prev {
+            left: 15px;
+        }
+        
+        .carousel-nav.next {
+            right: 15px;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ccc;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .carousel-dot.active {
+            background: var(--primary-color);
+        }
+        
+        /* Masquer les images sur mobile */
+        @media (max-width: 767px) {
+            .section-image,
+            .vision-carousel {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Menu mobile overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+    
+    <!-- Menu mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="icon-close"></i>
+        </button>
+        <ul class="mobile-menu-nav">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#infrastructure">Infrastructure</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#client">Client principal</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </div>
    
-    <div class="top-bar py-3 bg-light" id="home-section">
+    <!-- Header moderne -->
+    <header class="modern-header" id="header">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-6 text-left">
-            <ul class="social-media">
-              <li><a href="#"><span class="icon-facebook"></span></a></li>
-              <li><a href="#"><span class="icon-twitter"></span></a></li>
-              <li><a href="#"><span class="icon-instagram"></span></a></li>
-              <li><a href="#"><span class="icon-linkedin"></span></a></li>
-            </ul>
+                <div class="col-6 col-md-3">
+                    <a href="{% url 'index' %}" class="modern-logo">
+                        Jacco<span class="text-primary">.</span>
+                    </a>
           </div>
-          <div class="col-6">
-            <p class="mb-0 float-right">
-              <span class="mr-3"><a href="tel://#">
-                <span class="icon-phone mr-2" style="position: relative; top: 2px;"></span>
-                <span class="d-none d-lg-inline-block text-black">(+1) 234 5678 9101</span>
-              </a></span>
-              <span><a href="#">
-                <span class="icon-envelope mr-2" style="position: relative; top: 2px;"></span>
-                <span class="d-none d-lg-inline-block text-black">[email protected]</span>
-              </a></span>
-            </p>
+                <div class="col-6 col-md-9 text-right">
+                    <nav class="modern-nav d-flex justify-content-end">
+                        <a href="#home">Accueil</a>
+                        <a href="#infrastructure">Infrastructure</a>
+                        <a href="#vision">Vision</a>
+                        <a href="#client">Client principal</a>
+                        <a href="#contact">Contact</a>
+                    </nav>
+                    <button class="mobile-menu-toggle d-md-none" id="mobileMenuToggle">
+                        <i class="icon-menu"></i>
+                    </button>
           </div>
         </div>
       </div> 
-    </div>
-
-    <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="{% url 'index' %}" class="text-black mb-0">Jacco<span class="text-primary">.</span></a></h1>
-          </div>
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="#home-section" class="nav-link">Acceuil</a></li>
-                <li><a href="#infrastructure-section" class="nav-link">Infrastructure</a></li>
-                  <li><a href="#vision-section" class="nav-link">Vision</a></li>
-                <li><a href="#client-section" class="nav-link">Client principal</a></li>
-
-{#                <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>#}
-{#                <li><a href="#blog-section" class="nav-link">Blog</a></li>#}
-                <li><a href="#contact-section" class="nav-link">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;">
-            <a href="#" class="site-menu-toggle js-menu-toggle text-black float-right">
-              <span class="icon-menu h3"></span>
-            </a>
-          </div>
-        </div>
-      </div>
     </header>
 
-    <div class="site-blocks-cover overlay" style="background-image: url({% static 'images/hero_3.webp' %});" data-aos="fade" data-stellar-background-ratio="0.5">
+    <!-- Hero Section -->
+    <section class="modern-hero" id="home">
       <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-12" data-aos="fade-up" data-aos-delay="400">
-            <div class="row mb-4">
-              <div class="col-md-7">
-{#                <h1>Shop With Us</h1>#}
-{#                <p class="mb-5 lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam assumenda ea quo cupiditate facere deleniti fuga officia.</p>#}
-{#                <div>#}
-{#                  <a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a>#}
-{#                  <a href="#" class="btn btn-white py-3 px-5 rounded-0 d-block d-sm-inline-block">Club Membership</a>#}
-{#                </div>#}
-              </div>
-            </div>
+        <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+                        <h1 class="hero-title">
+                            JAMBO CONGO<br>
+                            <span class="text-white">COMPANY</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Fournisseur leader de gaz industriel et domestique en République Démocratique du Congo. 
+                            Depuis 2016, nous alimentons l'industrie et les ménages avec des solutions énergétiques fiables et durables.
+                        </p>
+                        <div class="hero-cta">
+                            <a href="#about" class="btn-modern btn-modern-primary">
+                                <i class="icon-arrow-down"></i>
+                                Découvrir JACCO
+                            </a>
+                            <a href="#contact" class="btn-modern btn-modern-outline">
+                                <i class="icon-envelope"></i>
+                                Nous contacter
+            </a>
+          </div>
+          </div>
           </div>
         </div>
       </div>
-    </div>  
+    </section>
 
-    <div class="site-section" id="products-section">
+    <div class="spacer"></div>  
+
+    <!-- À propos -->
+    <section class="modern-section" id="about">
       <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-md-6 text-center">
-{#            <h3 class="section-sub-title">Popular Products</h3>#}
-            <h2 class="section-title mb-3">JAMBO CONGO COMPANY</h2>
-            <p>
-               JAMBO CONGO COMPANY (JACCO) est une entreprise spécialisée dans la fourniture de gaz industriel et domestique. <br>Implantée à Doko depuis 2016, dans la province du Haut-Uele en République Démocratique du Congo, JACCO s’engage à répondre aux besoins énergétiques croissants de l’industrie et des ménages.
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">JAMBO CONGO COMPANY</h2>
+                <p class="section-subtitle">
+                    Implantée à Doko depuis 2016, dans la province du Haut-Uele, JACCO s'engage à répondre 
+                    aux besoins énergétiques croissants de l'industrie et des ménages avec excellence et innovation.
+            </p>
+              </div>
+            </div>
+    </section>
+
+
+    <!-- Infrastructure -->
+    <section class="modern-section bg-light-custom" id="infrastructure">
+      <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Infrastructure & Production</h2>
+                <p class="section-subtitle">
+                    Une infrastructure de pointe équipée des dernières technologies pour assurer 
+                    une production fiable, rapide et respectueuse de l'environnement.
             </p>
           </div>
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="icon-flash"></i>
         </div>
-{#        <div class="row">#}
-{#          <div class="col-lg-4 col-md-6 mb-5">#}
-{#            <div class="product-item">#}
-{#              <figure>#}
-{#                <img src="{% static 'images/model_1_bg.jpg' %}" alt="Image" class="img-fluid">#}
-{#              </figure>#}
-{#              <div class="px-4">#}
-{#                <h3><a href="#">Wild West Hoodie</a></h3>#}
-{#                <div class="mb-3">#}
-{#                  <span class="meta-icons mr-3"><a href="#" class="mr-2"><span class="icon-star text-warning"></span></a> 5.0</span>#}
-{#                  <span class="meta-icons wishlist"><a href="#" class="mr-2"><span class="icon-heart"></span></a> 29</span>#}
-{#                </div>#}
-{#                <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>#}
-{#                <div>#}
-{#                  <a href="#" class="btn btn-black mr-1 rounded-0">Cart</a>#}
-{#                  <a href="#" class="btn btn-black btn-outline-black ml-1 rounded-0">View</a>#}
-{#                </div>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{##}
-{#          <!-- Répétez pour les autres produits en adaptant les liens statiques -->#}
-{##}
-{#        </div>#}
+                        <h3 class="card-title">Production Fiable et Rapide</h3>
+                        <p class="card-text">
+                            Grâce à des installations automatisées et des processus de contrôle rigoureux, 
+                            nous assurons une production continue et sécurisée.
+                        </p>
       </div>
     </div>
 
-    <div class="site-blocks-cover inner-page-cover overlay get-notification" style="background-image: url({% static 'images/hero_1.webp' %}); background-attachment: fixed;" data-aos="fade">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <form class="col-md-7" method="post">
-            <h2>Avec une usine moderne, un partenariat de premier plan avec Kibali Gold Mine et une vision tournée vers l’avenir, <br>JAMBO CONGO COMPANY (JACCO) se positionne comme un fournisseur de gaz incontournable dans le Haut-Uele et au-delà.</h2>
-{#            <div class="d-flex mb-4">#}
-{#              <input type="text" class="form-control rounded-0" placeholder="Enter your email address">#}
-{#              <input type="submit" class="btn btn-white btn-outline-white rounded-0" value="Subscribe">#}
-{#            </div>#}
-{#            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat commodi veniam doloremque ducimus tempora.</p>#}
-          </form>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="icon-bar-chart"></i>
         </div>
+                        <h3 class="card-title">Capacité Élevée</h3>
+                        <p class="card-text">
+                            Notre site peut gérer d'importants volumes, garantissant un approvisionnement 
+                            stable même en période de forte demande.
+                        </p>
       </div>
     </div>
 
-    <div class="site-section bg-light" id="infrastructure-section">
-      <div class="container">
-        <div class="row mb-5 justify-content-center">
-          <div class="col-md-6 text-center">
-{#            <h3 class="section-sub-title">Awesome Products</h3>#}
-            <h2 class="section-title mb-3">Infrastructure & <br>Capacité de Production</h2>
-            <p>Chez JACCO, nous avons investi dans une infrastructure de pointe dédiée à la conception et à la fabrication de nos produits de mode. Notre usine récemment modernisée est équipée des dernières technologies pour assurer :</p>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="icon-leaf"></i>
           </div>
+                        <h3 class="card-title">Respect Environnemental</h3>
+                        <p class="card-text">
+                            Équipements éco-responsables et matériaux durables pour réduire notre impact 
+                            écologique et promouvoir la durabilité.
+                        </p>
         </div>
-        <div class="bg-white py-4 mb-4">
-          <div class="row mx-4 my-4 product-item-2 align-items-start">
-            <div class="col-md-6 mb-5 mb-md-0">
-              <img src="{% static 'images/rapide.webp' %}" alt="Image" class="img-fluid">
             </div>
-            <div class="col-md-5 ml-auto product-title-wrap">
-              <span class="number">01.</span>
-              <h3 class="text-black mb-4 font-weight-bold">Production fiable et rapide</h3>
-{#              <p class="mb-4">Grâce à des chaînes de production automatisées et à des process de contrôle qualité exigeants, </p>#}
-              <p>Grâce à des installations automatisées et des processus de contrôle rigoureux, nous assurons une production continue et sécurisée, tout en maintenant un haut niveau de qualité.</p>
-{#              <div class="mb-4"> #}
-{#                <h3 class="text-black font-weight-bold h5">Price:</h3>#}
-{#                <div class="price"><del class="mr-2">$269.00</del> $69.00</div>#}
-{#              </div>#}
-{#              <p>#}
-{#                <a href="#" class="btn btn-black btn-outline-black rounded-0 d-block mb-2 mb-lg-0 d-lg-inline-block">View Details</a>#}
-{#                <a href="#" class="btn btn-black rounded-0 d-block d-lg-inline-block">Add To Cart</a>#}
-{#              </p>#}
+            </div>
+
+            <!-- Images Infrastructure - Desktop uniquement -->
+            <div class="row mt-4">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <img src="{% static 'images/infra_1.jpg' %}" 
+                         alt="Infrastructure industrielle moderne" 
+                         class="section-image">
+          </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <img src="{% static 'images/infra_2.jpg' %}" 
+                         alt="Équipements de production avancés" 
+                         class="section-image">
+        </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <img src="{% static 'images/infra_3.jpg' %}" 
+                         alt="Technologies environnementales durables" 
+                         class="section-image">
+            </div>
             </div>
           </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="modern-section" id="vision">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Notre Vision</h2>
+                <p class="section-subtitle">
+                    Devenir un leader énergétique en RDC en diversifiant notre clientèle, 
+                    en stimulant l'économie locale et en proposant des solutions durables.
+                </p>
         </div>
 
-        <div class="bg-white py-4 mb-4">
-          <div class="row mx-4 my-4 product-item-2 align-items-start">
-            <div class="col-md-6 mb-5 mb-md-0 order-1 order-md-2">
-              <img src="{% static 'images/production.webp' %}" alt="Image" class="img-fluid">
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="icon-users"></i>
             </div>
-            <div class="col-md-5 mr-auto product-title-wrap order-2 order-md-1">
-              <span class="number">02.</span>
-              <h3 class="text-black mb-4 font-weight-bold">Capacité de production élevée</h3>
-{#              <p class="mb-4">Notre site de production peut gérer d’importants volumes de commandes, </p>#}
-              <p>Notre site de production peut gérer d’importants volumes de commandes, Garantissant un approvisionnement stable pour nos clients, même en période de forte demande.</p>
-{#              <div class="mb-4"> #}
-{#                <h3 class="text-black font-weight-bold h5">Price:</h3>#}
-{#                <div class="price"><del class="mr-2">$269.00</del> $69.00</div>#}
-{#              </div>#}
-{#              <p>#}
-{#                <a href="#" class="btn btn-black btn-outline-black rounded-0 d-block mb-2 mb-lg-0 d-lg-inline-block">View Details</a>#}
-{#                <a href="#" class="btn btn-black rounded-0 d-block d-lg-inline-block">Add To Cart</a>#}
-{#              </p>#}
+                        <h3 class="card-title">Clients Variés</h3>
+                        <p class="card-text">
+                            Solutions énergétiques adaptées aux secteurs industriel, résidentiel et commercial 
+                            pour renforcer notre présence sur l'ensemble du marché.
+                        </p>
             </div>
           </div>
+                
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="icon-home"></i>
         </div>
-
-           <div class="bg-white py-4">
-          <div class="row mx-4 my-4 product-item-2 align-items-start">
-            <div class="col-md-6 mb-5 mb-md-0">
-              <img src="{% static 'images/norme.webp' %}" alt="Image" class="img-fluid">
-            </div>
-            <div class="col-md-5 ml-auto product-title-wrap">
-              <span class="number">03.</span>
-              <h3 class="text-black mb-4 font-weight-bold">Respect des normes environnementales</h3>
-              <p class="mb-4">Nous utilisons des équipements éco-responsables et des matériaux durables afin de réduire notre impact écologique et de promouvoir une mode plus respectueuse de la planète, </p>
-{#              <p>nous sommes en mesure de fabriquer des chaussures et des accessoires de manière efficace, tout en préservant une qualité constante</p>#}
-{#              <div class="mb-4"> #}
-{#                <h3 class="text-black font-weight-bold h5">Price:</h3>#}
-{#                <div class="price"><del class="mr-2">$269.00</del> $69.00</div>#}
-{#              </div>#}
-{#              <p>#}
-{#                <a href="#" class="btn btn-black btn-outline-black rounded-0 d-block mb-2 mb-lg-0 d-lg-inline-block">View Details</a>#}
-{#                <a href="#" class="btn btn-black rounded-0 d-block d-lg-inline-block">Add To Cart</a>#}
-{#              </p>#}
-            </div>
-          </div>
-        </div>
+                        <h3 class="card-title">Développement Local</h3>
+                        <p class="card-text">
+                            Collaboration avec les acteurs locaux pour créer des emplois, 
+                            soutenir l'industrialisation et favoriser le transfert de compétences.
+                        </p>
       </div>
     </div>
 
-          <div class="site-section bg-light" id="vision-section">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-12 text-center">
-            <h2 class="section-title mb-3">Engagement et Vision</h2>
-              <p>JACCO vise à devenir un leader énergétique en RDC en diversifiant sa clientèle, <br>en stimulant l’économie locale et en proposant des solutions sûres et pérennes.</p>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="modern-card">
+                        <div class="card-icon">
+                            <i class="icon-shield"></i>
           </div>
+                        <h3 class="card-title">Solutions Durables</h3>
+                        <p class="card-text">
+                            Technologies fiables et respectueuses de l'environnement avec des standards 
+                            rigoureux pour un approvisionnement énergétique stable.
+                        </p>
         </div>
-        <div class="row align-items-stretch">
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-pie_chart"></span></div>
-              <div>
-                <h3>Clients variés</h3>
-                <p>En proposant des solutions énergétiques adaptées à différents secteurs (industriel, résidentiel, commercial, etc.), JACCO souhaite répondre aux besoins spécifiques de chaque client et renforcer sa présence sur l’ensemble du marché</p>
-{#                <p><a href="#">Learn More</a></p>#}
+              </div>
+            </div>
+            
+            <!-- Carousel Vision - Desktop uniquement -->
+            <div class="row mt-5">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="400">
+                    <div class="vision-carousel" id="visionCarousel">
+                        <div class="carousel-container" id="carouselContainer">
+                            <div class="carousel-slide">
+                                <img src="{% static 'images/vision_1.jpg' %}" 
+                                     alt="Innovation technologique">
+                                <div class="carousel-overlay">
+                                    <div class="carousel-title">Innovation Technologique</div>
+                                    <div class="carousel-text">Investissement dans les technologies de pointe pour l'avenir énergétique</div>
+          </div>
+              </div>
+                            <div class="carousel-slide">
+                                <img src="{% static 'images/vision_2.jpg' %}" 
+                                     alt="Équipe collaborative">
+                                <div class="carousel-overlay">
+                                    <div class="carousel-title">Collaboration d'Équipe</div>
+                                    <div class="carousel-text">Une équipe unie pour des solutions énergétiques durables</div>
+            </div>
+          </div>
+                            <div class="carousel-slide">
+                                <img src="{% static 'images/vision_3.jpg' %}" 
+                                     alt="Développement durable">
+                                <div class="carousel-overlay">
+                                    <div class="carousel-title">Développement Durable</div>
+                                    <div class="carousel-text">Engagement pour un avenir énergétique respectueux de l'environnement</div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-backspace"></span></div>
-              <div>
-                <h3>Développement local</h3>
-                <p>Consciente de son rôle dans la croissance de la région, JACCO collabore étroitement avec les acteurs locaux afin de créer des emplois, de soutenir l’industrialisation et de favoriser le transfert de compétences.</p>
-{#                <p><a href="#">Learn More</a></p>#}
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="unit-4 d-flex">
-              <div class="unit-4-icon mr-4"><span class="text-primary icon-av_timer"></span></div>
-              <div>
-                <h3>Solutions durables</h3>
-                <p>La sécurité et la durabilité sont au cœur des priorités de JACCO. L’entreprise investit dans des technologies fiables et respectueuses de l’environnement, tout en mettant en place des standards rigoureux pour garantir un approvisionnement énergétique stable.</p>
-{#                <p><a href="#">Learn More</a></p>#}
-              </div>
-            </div>
-          </div>
-{#          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="300">#}
-{#            <div class="unit-4 d-flex">#}
-{#              <div class="unit-4-icon mr-4"><span class="text-primary icon-beenhere"></span></div>#}
-{#              <div>#}
-{#                <h3>Seller Consulting</h3>#}
-{#                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>#}
-{#                <p><a href="#">Learn More</a></p>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="400">#}
-{#            <div class="unit-4 d-flex">#}
-{#              <div class="unit-4-icon mr-4"><span class="text-primary icon-business_center"></span></div>#}
-{#              <div>#}
-{#                <h3>Financial Investment</h3>#}
-{#                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>#}
-{#                <p><a href="#">Learn More</a></p>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4" data-aos="fade-up" data-aos-delay="500">#}
-{#            <div class="unit-4 d-flex">#}
-{#              <div class="unit-4-icon mr-4"><span class="text-primary icon-cloud_done"></span></div>#}
-{#              <div>#}
-{#                <h3>Financial Management</h3>#}
-{#                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis quis molestiae vitae eligendi at.</p>#}
-{#                <p><a href="#">Learn More</a></p>#}
-{#              </div>#}
-{#            </div>#}
-{#          </div>#}
+                        <button class="carousel-nav prev" id="prevBtn">
+                            <i class="icon-chevron-left"></i>
+                        </button>
+                        <button class="carousel-nav next" id="nextBtn">
+                            <i class="icon-chevron-right"></i>
+                        </button>
         </div>
+                    <div class="carousel-dots" id="carouselDots">
+                        <div class="carousel-dot active" data-slide="0"></div>
+                        <div class="carousel-dot" data-slide="1"></div>
+                        <div class="carousel-dot" data-slide="2"></div>
       </div>
     </div>
+            </div>
+        </div>
+    </section>
 
 
-    <div class="site-section" id="client-section">
+    <!-- Client Principal -->
+    <section class="modern-section bg-light-custom" id="client">
       <div class="container">
-        <div class="row align-items-lg-center">
-          <div class="col-md-8 mb-5 mb-lg-0 position-relative">
-            <img src="{% static 'images/kibali.jpg' %}" class="img-fluid" alt="Image">
-            <div class="experience">
-              <span class="year">KIBALI GOLD MINE</span>
-              <span class="caption">Barrick Gold Corporation</span>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="client-section">
+                        <h3 class="section-title">KIBALI GOLD MINE</h3>
+                        <h4 class="text-primary mb-3">Notre Client Principal</h4>
+                        <p class="card-text">
+                            JACCO est fier d'être le principal fournisseur de gaz de KIBALI GOLD MINE, 
+                            une mine d'envergure opérée par Barrick Gold Corporation. Cette collaboration 
+                            stratégique illustre notre capacité à répondre aux exigences strictes du secteur minier.
+                        </p>
             </div>
           </div>
-          <div class="col-md-3 ml-auto">
-            <h3 class="section-sub-title">KIBALI GOLD MINE</h3>
-            <h2 class="section-title mb-3">Client Principal</h2>
-            <p class="mb-4">JACCO est fier d’être le principal fournisseur de gaz de KIBALI GOLD MINE, une mine d’envergure opérée par Barrick Gold Corporation. <br>Cette collaboration stratégique illustre la capacité de JACCO à répondre aux exigences strictes du secteur minier en matière de qualité, de sécurité et de logistique d’approvisionnement.</p>
-{#            <p><a href="#" class="btn btn-black btn-black--hover rounded-0">Learn More</a></p>#}
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="{% static 'images/kibali.jpg' %}" alt="Kibali Gold Mine" class="client-logo">
           </div>
         </div>
       </div>
-    </div>
-
-{#    <div class="site-section border-bottom" id="team-section">#}
-{#      <div class="container">#}
-{#        <div class="row mb-5">#}
-{#          <div class="col-12 text-center">#}
-{#            <h3 class="section-sub-title">Team</h3>#}
-{#            <h2 class="section-title mb-3">Leadership</h2>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div class="row">#}
-{#          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">#}
-{#            <div class="person text-center">#}
-{#              <img src="{% static 'images/person_2.jpg' %}" alt="Image" class="img-fluid rounded w-75 mb-3">#}
-{#              <h3>John Rooster</h3>#}
-{#              <p class="position text-muted">Co-Founder, President</p>#}
-{#              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>#}
-{#              <ul class="ul-social-circle">#}
-{#                <li><a href="#"><span class="icon-facebook"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-twitter"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-linkedin"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-instagram"></span></a></li>#}
-{#              </ul>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">#}
-{#            <div class="person text-center">#}
-{#              <img src="{% static 'images/person_3.jpg' %}" alt="Image" class="img-fluid rounded w-75 mb-3">#}
-{#              <h3>Tom Sharp</h3>#}
-{#              <p class="position text-muted">Co-Founder, COO</p>#}
-{#              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>#}
-{#              <ul class="ul-social-circle">#}
-{#                <li><a href="#"><span class="icon-facebook"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-twitter"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-linkedin"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-instagram"></span></a></li>#}
-{#              </ul>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="300">#}
-{#            <div class="person text-center">#}
-{#              <img src="{% static 'images/person_4.jpg' %}" alt="Image" class="img-fluid rounded w-75 mb-3">#}
-{#              <h3>Winston Hodson</h3>#}
-{#              <p class="position text-muted">Marketing</p>#}
-{#              <p class="mb-4">Nisi at consequatur unde molestiae quidem provident voluptatum deleniti quo iste error eos est praesentium distinctio cupiditate tempore suscipit inventore deserunt tenetur.</p>#}
-{#              <ul class="ul-social-circle">#}
-{#                <li><a href="#"><span class="icon-facebook"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-twitter"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-linkedin"></span></a></li>#}
-{#                <li><a href="#"><span class="icon-instagram"></span></a></li>#}
-{#              </ul>#}
-{#            </div>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{##}
-{#    <div class="site-blocks-cover overlay get-notification" id="special-section" style="background-image: url({% static 'images/hero_2.jpg' %}); background-attachment: fixed; background-position: top;" data-aos="fade">#}
-{#      <div class="container">#}
-{#        <div class="row align-items-center justify-content-center">#}
-{#          <div class="col-md-7 text-center">#}
-{#            <h3 class="section-sub-title">Special Promo</h3>#}
-{#            <h3 class="section-title text-white mb-4">Summer Sale</h3>#}
-{#            <p class="mb-5 lead">Repudiandae nostrum natus excepturi fuga ullam accusantium vel ut eveniet aut consequatur laboriosam ipsam.</p>#}
-{#            <div id="date-countdown" class="mb-5"></div>#}
-{#            <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a></p>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
+    </section>
 
 
-{#    <div class="site-section testimonial-wrap" id="testimonials-section">#}
-{#      <div class="container">#}
-{#        <div class="row mb-5">#}
-{#          <div class="col-12 text-center">#}
-{#            <h3 class="section-sub-title">People Says</h3>#}
-{#            <h2 class="section-title mb-3">Testimonials</h2>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#      <div class="slide-one-item home-slider owl-carousel">#}
-{#        <div>#}
-{#          <div class="testimonial">#}
-{#            <figure class="mb-4 d-block align-items-center justify-content-center">#}
-{#              <div><img src="{% static 'images/person_3.jpg' %}" alt="Image" class="w-100 img-fluid mb-3"></div>#}
-{#            </figure>#}
-{#            <blockquote class="mb-3">#}
-{#              <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>#}
-{#            </blockquote>#}
-{#            <p class="text-black"><strong>John Smith</strong></p>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div>#}
-{#          <div class="testimonial">#}
-{#            <figure class="mb-4 d-block align-items-center justify-content-center">#}
-{#              <div><img src="{% static 'images/person_2.jpg' %}" alt="Image" class="w-100 img-fluid mb-3"></div>#}
-{#            </figure>#}
-{#            <blockquote class="mb-3">#}
-{#              <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>#}
-{#            </blockquote>#}
-{#            <p class="text-black"><strong>Robert Aguilar</strong></p>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div>#}
-{#          <div class="testimonial">#}
-{#            <figure class="mb-4 d-block align-items-center justify-content-center">#}
-{#              <div><img src="{% static 'images/person_4.jpg' %}" alt="Image" class="w-100 img-fluid mb-3"></div>#}
-{#            </figure>#}
-{#            <blockquote class="mb-3">#}
-{#              <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>#}
-{#            </blockquote>#}
-{#            <p class="text-black"><strong>Roger Spears</strong></p>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div>#}
-{#          <div class="testimonial">#}
-{#            <figure class="mb-4 d-block align-items-center justify-content-center">#}
-{#              <div><img src="{% static 'images/person_1.jpg' %}" alt="Image" class="w-100 img-fluid mb-3"></div>#}
-{#            </figure>#}
-{#            <blockquote class="mb-3">#}
-{#              <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>#}
-{#            </blockquote>#}
-{#            <p class="text-black"><strong>Kyle McDonald</strong></p>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-{#    <div class="site-section" id="blog-section">#}
-{#      <div class="container">#}
-{#        <div class="row mb-5">#}
-{#          <div class="col-12 text-center">#}
-{#            <h3 class="section-sub-title">Blog</h3>#}
-{#            <h2 class="section-title mb-3">Blog Posts</h2>#}
-{#          </div>#}
-{#        </div>#}
-{#        <div class="row">#}
-{#          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">#}
-{#            <div class="h-entry">#}
-{#              <img src="{% static 'images/model_1_bg.jpg' %}" alt="Image" class="img-fluid">#}
-{#              <h2 class="font-size-regular"><a href="#" class="text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>#}
-{#              <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>#}
-{#              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>#}
-{#              <p><a href="#">Continue Reading...</a></p>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">#}
-{#            <div class="h-entry">#}
-{#              <img src="{% static 'images/product_1_bg.jpg' %}" alt="Image" class="img-fluid">#}
-{#              <h2 class="font-size-regular"><a href="#" class="text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>#}
-{#              <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>#}
-{#              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>#}
-{#              <p><a href="#">Continue Reading...</a></p>#}
-{#            </div>#}
-{#          </div>#}
-{#          <div class="col-md-6 col-lg-4 mb-4 mb-lg-4">#}
-{#            <div class="h-entry">#}
-{#              <img src="{% static 'images/model_5_bg.jpg' %}" alt="Image" class="img-fluid">#}
-{#              <h2 class="font-size-regular"><a href="#" class="text-black">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>#}
-{#              <div class="meta mb-4">James Phelps <span class="mx-2">&bullet;</span> Jan 18, 2019<span class="mx-2">&bullet;</span> <a href="#">News</a></div>#}
-{#              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores sapiente veritatis reprehenderit suscipit quaerat rerum voluptatibus a eius.</p>#}
-{#              <p><a href="#">Continue Reading...</a></p>#}
-{#            </div>#}
-{#          </div>#}
-{#        </div>#}
-{#      </div>#}
-{#    </div>#}
-
-<div class="site-section bg-light" id="contact-section">
+    <!-- Contact -->
+    <section class="modern-section" id="contact">
   <div class="container">
-    <div class="row mb-5">
-      <div class="col-12 text-center">
-        <h3 class="section-sub-title">Formulaire de contact</h3>
-        <h2 class="section-title mb-3">Entrer en contact</h2>
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Contactez-nous</h2>
+                <p class="section-subtitle">
+                    Prêt à découvrir nos solutions énergétiques ? 
+                    Notre équipe est là pour répondre à vos besoins.
+                </p>
       </div>
-    </div>
+            
     <div class="row justify-content-center">
-      <div class="col-md-7 mb-5">
-        <form action="#" class="p-5 bg-white">
-          <h2 class="h4 text-black mb-5">Formulaire de contact</h2>
-          <div class="row form-group">
-            <div class="col-md-6 mb-3 mb-md-0">
-              <label class="text-black" for="fname">Prénom</label>
-              <input type="text" id="fname" class="form-control rounded-0">
+                <div class="col-lg-8">
+                    <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
+                        <form action="#" method="post">
+                            <div class="row">
+            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fname" class="form-label">Prénom</label>
+                                        <input type="text" id="fname" name="fname" class="form-control form-control-modern" 
+                                               placeholder="Votre prénom" required>
+            </div>
             </div>
             <div class="col-md-6">
-              <label class="text-black" for="lname">Nom</label>
-              <input type="text" id="lname" class="form-control rounded-0">
+                                    <div class="form-group">
+                                        <label for="lname" class="form-label">Nom</label>
+                                        <input type="text" id="lname" name="lname" class="form-control form-control-modern" 
+                                               placeholder="Votre nom" required>
             </div>
           </div>
-          <div class="row form-group">
-            <div class="col-md-12">
-              <label class="text-black" for="email">Email</label>
-              <input type="email" id="email" class="form-control rounded-0">
             </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Adresse email</label>
+                                <input type="email" id="email" name="email" class="form-control form-control-modern" 
+                                       placeholder="votre.email@exemple.com" required>
           </div>
-          <div class="row form-group">
-            <div class="col-md-12">
-              <label class="text-black" for="subject">Sujet</label>
-              <input type="text" id="subject" class="form-control rounded-0">
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Sujet</label>
+                                <input type="text" id="subject" name="subject" class="form-control form-control-modern" 
+                                       placeholder="Objet de votre message" required>
             </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" class="form-control form-control-modern textarea" 
+                                         placeholder="Décrivez votre projet, vos besoins ou votre demande..." required></textarea>
           </div>
-          <div class="row form-group">
-            <div class="col-md-12">
-              <label class="text-black" for="message">Message</label>
-              <textarea name="message" id="message" cols="30" rows="7" class="form-control rounded-0" placeholder="Écrivez vos notes ou questions ici..."></textarea>
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="icon-send"></i>
+                                    Envoyer le message
+                                </button>
             </div>
-          </div>
-          <div class="row form-group">
-            <div class="col-md-12">
-              <input type="submit" value="Envoyer" class="btn btn-black rounded-0 py-3 px-4">
-            </div>
-          </div>
         </form>
+          </div>
+            </div>
+          </div>
       </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="modern-footer">
+  <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    Jacco<span class="text-primary">.</span>
     </div>
+                <p class="footer-text">
+                    Fournisseur leader de solutions énergétiques en République Démocratique du Congo
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="icon-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="icon-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="icon-linkedin"></i></a>
+                    <a href="#" class="social-link"><i class="icon-instagram"></i></a>
   </div>
 </div>
-
-<footer class="site-footer">
-  <style>
-    .site-footer {
-      background-color: #f16821; /* Orange clair */
-      text-align: center;
-      padding: 10px 0;
-      margin-top: 20px;
-      color: #fff;               /* Texte en blanc */
-    }
-
-    .site-footer p {
-      margin: 0;
-    }
-
-    .site-footer a {
-      color: #fff;               /* Lien en blanc */
-      text-decoration: underline;/* Pour souligner ou modifier selon vos besoins */
-    }
-  </style>
-
-  <div class="container">
-    <p style="color: white">
-      Copyright &copy;
-      <script>document.write(new Date().getFullYear());</script>
-      All rights reserved | by
-      <a href="#" target="_blank">joyce sabwe</a>
-    </p>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> JAMBO CONGO COMPANY. Tous droits réservés | Développé par Joyce Sabwe</p>
+            </div>
   </div>
 </footer>
 
 
 
-  </div>
-
+    <!-- Scripts -->
   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
-  <script src="{% static 'js/jquery-ui.js' %}"></script>
-  <script src="{% static 'js/popper.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
-  <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap-datepicker.min.js' %}"></script>
-  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
   <script src="{% static 'js/aos.js' %}"></script>
-  <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
-  <script src="{% static 'js/jquery.sticky.js' %}"></script>
-  <script src="{% static 'js/main.js' %}"></script>
+    
+    <script>
+        // Initialisation AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Année dynamique
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Menu mobile fonctionnel
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-nav a');
+
+        // Ouvrir le menu mobile
+        mobileMenuToggle?.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Fermer le menu mobile
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        mobileMenuClose?.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
+
+        // Fermer le menu quand on clique sur un lien
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+
+        // Fermer le menu avec la touche Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Carousel Vision
+        const carousel = document.getElementById('carouselContainer');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const totalSlides = 3;
+
+        function updateCarousel() {
+            const translateX = -currentSlide * 100;
+            carousel.style.transform = `translateX(${translateX}%)`;
+            
+            // Mettre à jour les dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+
+        // Event listeners pour le carousel
+        nextBtn?.addEventListener('click', nextSlide);
+        prevBtn?.addEventListener('click', prevSlide);
+
+        // Event listeners pour les dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
+
+        // Auto-play du carousel (optionnel)
+        setInterval(() => {
+            if (window.innerWidth > 767) { // Seulement sur desktop
+                nextSlide();
+            }
+        }, 5000);
+    </script>
 </body>
 </html>
